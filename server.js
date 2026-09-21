@@ -19,7 +19,7 @@ const contentTypes = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascr
 
 const server = http.createServer((request, response) => {
   const requestPath = decodeURIComponent(request.url.split('?')[0]);
-  if (requestPath === '/env.js' || requestPath === '/api/env.js') {
+  if (requestPath === '/env.js' || requestPath === '/api/env.js' || requestPath === '/api/env') {
     const url = env.SUPABASE_URL || '';
     const key = env.SUPABASE_ANON_KEY || '';
     response.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8', 'Cache-Control': 'no-store' });
